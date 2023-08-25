@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+
+# PERL
+export PERL5LIB="/Library/Perl/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; 
+export PERL_LOCAL_LIB_ROOT="/Library/Perl/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; 
+export PERL_MB_OPT="--install_base \"/Library/Perl/perl5\""; 
+export PERL_MM_OPT="INSTALL_BASE=/Library/Perl/perl5"; 
+
+# LLVM
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+# Increase shell history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Homebrew
+export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=TRUE
+
+# Hide the “default interactive shell is now zsh” warning on macOS.
+export BASH_SILENCE_DEPRECATION_WARNING=1;
+
+# GNU Privacy Guard
+export GPG_TTY=$(tty)
