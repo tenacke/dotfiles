@@ -1,7 +1,3 @@
-[user]
-	email = emrekilic1010@gmail.com
-	name = tenacke
-	signingkey = 6E3AB90793E7D08A
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
