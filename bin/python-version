@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+VERSION=$1
+
+if [ -z "$VERSION" ]; then
+    echo "Usage: $0 <version (7,8,9,10,11)>"
+    exit 1
+fi
+if [ $VERSION -lt 7 ] || [ $VERSION -gt 11 ]; then
+    echo "There is no python version $VERSION"
+    echo "Usage: $0 <version (7,8,9,10,11)>"
+    exit 1
+fi
+
+# Ask for the administrator password upfront
+sudo -v
+
+sudo rm /usr/local/bin/python3
+sudo rm /usr/local/bin/pip3
+sudo rm /usr/local/bin/python3-config
+
+sudo ln -s /opt/homebrew/bin/python3.$VERSION /usr/local/bin/python3
+sudo ln -s /opt/homebrew/bin/pip3.$VERSION /usr/local/bin/pip3
+sudo ln -s /opt/homebrew/bin/python3.$VERSION-config /usr/local/bin/python3-config
+
+echo "Python version set to $VERSION"
