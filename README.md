@@ -1,5 +1,5 @@
 # Dotfiles
-tenacke's dotfiles for MacOs setup. You can install and give it a try but it is suggested that you should fork this repository to edit settings with your own custom things.
+tenacke's dotfiles for MacOs setup. This repository is inspired from [Mathias's Dotfiles](https://github.com/mathiasbynens/dotfiles). You can install and give it a try but it is suggested that you should fork this repository to edit settings with your own custom things.
 
 ## Extra Settings without a fork
 You can create a '~/.extra' file and add your own extra variables and settings without forking the repository
