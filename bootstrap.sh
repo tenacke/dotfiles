@@ -1,12 +1,24 @@
 #!/bin/zsh
 
+# There are 5 python versions: 3.7, 3.8, 3.9, 3.10, 3.11
+# Set the default version you want to use here
 PYTHON_VERSION=11
 
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+# Keep-alive: update existing `sudo` time stamp until installation has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# install homebrew
+xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# get updated brew
+brew update
+
+# install git
+brew install git
 
 # clone dotfiles from github
 URL=https://github.com/tenacke/dotfiles.git
@@ -17,19 +29,6 @@ git clone --bare $URL
 rm -rf .git
 rm  LICENSE
 rm README.md
-
-git config --global user.name "tenacke"
-git config --global user.email "emrekilic1010@gmail.com"
-
-# install homebrew
-xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# get updated brew
-brew update
-
-# upgrade brew packages
-brew upgrade
 
 # install python3
 brew install python@3.7

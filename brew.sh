@@ -2,9 +2,6 @@
 
 # install brew packages
 
-# install updated version of git
-brew install git
-
 # fun stuff
 brew install cowsay
 brew install fortune
