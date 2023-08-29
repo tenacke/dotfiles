@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # There are 5 python versions: 3.7, 3.8, 3.9, 3.10, 3.11
-# Set the default version you want to use here
+# Set the default version you want to use here without '3.' prefix
 PYTHON_VERSION=11
 
 # Ask for the administrator password upfront
@@ -59,6 +59,12 @@ PATHS=$(cat /etc/paths)
 NEW_PATHS="/opt/homebrew/opt/coreutils/libexec/gnubin\n/opt/homebrew/opt/findutils/libexec/gnubin\n/opt/homebrew/opt/grep/libexec/gnubin\n/opt/homebrew/opt/binutils/bin\n/opt/homebrew/opt/llvm/bin"
 
 echo $PATHS $NEW_PATHS | tr ' ' '\n' | uniq | tr '\n' ' ' | sudo tee /etc/paths
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# source settings in .zshrc 
+echo "source ~/.zprofile" >> ~/.zshrc
 
 # flush changes
 exec $SHELL -l
