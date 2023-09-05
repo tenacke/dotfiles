@@ -68,3 +68,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Pdf join command
+alias pdfjoin="/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/MacOS/join"
